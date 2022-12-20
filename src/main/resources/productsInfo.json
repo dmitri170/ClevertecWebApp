@@ -1,0 +1,46 @@
+[
+  {
+    "name": "Milk",
+    "price": "1.37",
+    "stock": true
+  },
+  {
+    "name": "Bread",
+    "price": "1.17",
+    "stock": true
+  },
+  {
+    "name": "Juice",
+    "price": "2.32",
+    "stock": false
+  },
+  {
+  "name": "Onion",
+  "price": "7.32",
+  "stock": false
+},{
+  "name": "Sugar",
+  "price": "2.32",
+  "stock": false
+},{
+  "name": "Mango",
+  "price": "5.32",
+  "stock": false
+},{
+  "name": "Beer",
+  "price": "1.92",
+  "stock": true
+},{
+  "name": "Pasta",
+  "price": "1.32",
+  "stock": true
+},{
+  "name": "Melon",
+  "price": "5.19",
+  "stock": true
+},{
+  "name": "Water",
+  "price": "1.17",
+  "stock": true
+}
+]

@@ -1,0 +1,24 @@
+		CASH RECEIPT
+		EvroOpt
+		c.Gomel str.Gagarina h.23
+CASHIER:10		DATE:			2022.12.21
+				TIME:			02:27:26
+-----------------------------------------
+QTY		DESCRIPTION		PRICE		TOTAL
+5		Melon			5.32		23,94
+item more than 5 and got a discount in 10%
+5		Water			1.32		5,94
+item more than 5 and got a discount in 10%
+5		Onion			1.32		5,94
+item more than 5 and got a discount in 10%
+6		Milk			1.32		7,13
+item more than 5 and got a discount in 10%
+5		Opion			1.32		5,94
+item more than 5 and got a discount in 10%
+3		Vodka			4.32		12,96
+2		Strawberry			5.27		10,54
+5		Limon			6.17		27,77
+item more than 5 and got a discount in 10%
+-----------------------------------------
+TAXABLE TOT.						100,15
+TOTAL								98,15
