@@ -30,10 +30,8 @@ public class Main {
                     File productsInfoFile = new File("./src/main/resources/productsInfo.json");
                     File cardsInfoFile = new File("./src/main/resources/cardsInfo.json");
 
-                    ArrayList<ProductDTO> productDTOS = objectMapper.readValue(productsInfoFile, new TypeReference<ArrayList<ProductDTO>>() {
-                    });
-                    ArrayList<CardDTO> cardDTOS = objectMapper.readValue(cardsInfoFile, new TypeReference<ArrayList<CardDTO>>() {
-                    });
+                    ArrayList<ProductDTO> productDTOS = objectMapper.readValue(productsInfoFile, new TypeReference<ArrayList<ProductDTO>>() {});
+                    ArrayList<CardDTO> cardDTOS = objectMapper.readValue(cardsInfoFile, new TypeReference<ArrayList<CardDTO>>() {});
                     InputDataParser inputDataParser = new InputDataParser(productDTOS);
                     ArrayList<ProductFromCheckDTO> productsFromCheck = inputDataParser.getInfoProductsInCheck(inputArg);
                     int cardNumber = inputDataParser.getCardNumber(inputArg);

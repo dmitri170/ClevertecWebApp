@@ -81,6 +81,8 @@ public class CheckDTO {
         this.cardDTOS = cardDTOS;
         this.productDTOS = productDTOS;
         this.numberCard=numberCard;
+    }
+    public CheckDTO(Integer[] productIds,Integer numberCard){
 
     }
     void changeBuilder(PrintCheckBuilder builder){
