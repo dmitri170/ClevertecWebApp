@@ -1,6 +1,6 @@
 package org.example.DAL.models;
 
-import org.example.entity.DiscountCard;
+import org.example.DAO.entity.DiscountCard;
 
 public class CardDTO {
 

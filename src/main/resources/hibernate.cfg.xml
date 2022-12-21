@@ -9,8 +9,8 @@
         <property name="connection.driver_class">org.postgresql.Driver</property>
         <property name="connection.username">postgres</property>
         <property name="connection.password">root</property>
-        <mapping class="org.example.entity.Product"/>
-        <mapping class="org.example.entity.DiscountCard"/>
+        <mapping class="org.example.DAO.entity.Product"/>
+        <mapping class="org.example.DAO.entity.DiscountCard"/>
 
         <!-- DB schema will be updated if needed -->
         <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->

@@ -2,8 +2,8 @@ package org.example;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.example.entity.DiscountCard;
-import org.example.entity.Product;
+import org.example.DAO.entity.DiscountCard;
+import org.example.DAO.entity.Product;
 import org.example.DAL.models.*;
 import org.example.DAL.services.implementations.ConsolePrintCheckBuilderImpl;
 import org.example.DAL.services.implementations.FilePrintCheckBuilderIml;

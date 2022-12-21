@@ -1,6 +1,6 @@
 package org.example.DAL.models;
 
-import org.example.entity.Product;
+import org.example.DAO.entity.Product;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
