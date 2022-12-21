@@ -17,7 +17,6 @@ public class ConsolePrintCheckBuilderImpl implements PrintCheckBuilder {
     @Override
     public void printHeader(String TITLE, MarketDTO marketDTO, String cashierLabel, int numberCashier, String dateLabel,
                             Date printDate, String timeLabel, String qty, String description, String price, String total) {
-
         System.out.println("\t\t"+TITLE);
         System.out.println("\t\t"+ marketDTO.getName());
         System.out.println("\t\t"+ marketDTO.getAddress());
@@ -34,7 +33,6 @@ public class ConsolePrintCheckBuilderImpl implements PrintCheckBuilder {
         System.out.println(qty+"\t\t"+description+"\t\t"+price+"\t\t"+total);
 
     }
-
     @Override
     public double printProductList(ArrayList<ProductFromCheckDTO> productFromCheckDTOS, ArrayList<ProductDTO> productDTOS, ArrayList<CardDTO> cardDTOS, int numberCard) {
         double totalSum=0;
@@ -72,6 +70,4 @@ public class ConsolePrintCheckBuilderImpl implements PrintCheckBuilder {
         }
         System.out.println(totalLabel+"\t\t\t\t\t\t\t\t"+dF.format(totalSum*(100-precent)/100));
     }
-
-
 }

@@ -23,12 +23,9 @@ public class ProductsServiceImpl implements ProductsService {
         return false;
     }
     public double getPriceById(int id){
-
         return productDTOS.get(id-1).getPrice();
     }
     public boolean getStockById(int id){
         return productDTOS.get(id-1).getStock();
     }
-
-
 }

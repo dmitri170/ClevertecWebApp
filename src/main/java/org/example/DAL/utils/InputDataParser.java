@@ -15,22 +15,16 @@ import java.util.regex.Pattern;
 
 public class InputDataParser {
     ProductsService productsService;
-
     public InputDataParser(ArrayList<ProductDTO> productDTOS) {
         this.productsService = new ProductsServiceImpl(productDTOS);
     }
-
-    public InputDataParser() {
-
-    }
-
-    public ArrayList<ProductFromCheckDTO> getInfoProductsInCheck(String params) throws ProductNotFoundException {
-        String[] mass = params.split(" ");
+    public InputDataParser() {}
+    public ArrayList<ProductFromCheckDTO> getInfoProductsInCheck(String[] params) throws ProductNotFoundException {
         ArrayList<ProductFromCheckDTO> listProd = new ArrayList<>();
-        for (int i = 0; i < mass.length; i++) {
-            boolean foundIdAndQuin = Pattern.matches("(\\d+\\-+\\d+)", mass[i]);
+        for (int i = 0; i < params.length; i++) {
+            boolean foundIdAndQuin = Pattern.matches("(\\d+\\-+\\d+)", params[i]);
             if (foundIdAndQuin) {
-                String[] s = mass[i].split("-");
+                String[] s = params[i].split("-");
                 if (productsService.isProductExists(Integer.parseInt(s[0]))) {
                     double priceById = productsService.getPriceById(Integer.parseInt(s[0]));
                     ProductFromCheckDTO p = new ProductFromCheckDTO(Integer.parseInt(s[0]), Integer.parseInt(s[1]), priceById);
@@ -44,18 +38,16 @@ public class InputDataParser {
         return listProd;
     }
 
-    public int getCardNumber(String params) throws CardNotFoundException {
-        String[] mass = params.split(" ");
+    public int getCardNumber(String[] arg) throws CardNotFoundException {
         int k = 0;
         int numberCard = 0;
-        for (int i = 0; i < mass.length; i++) {
+        for (int i = 0; i < arg.length; i++) {
             Pattern pattern = Pattern.compile("card-(\\d+)");
-            Matcher matcher = pattern.matcher(mass[i]);
+            Matcher matcher = pattern.matcher(arg[i]);
             k++;
             if (matcher.find()) {
-                String[] s = mass[i].split("-");
+                String[] s = arg[i].split("-");
                 numberCard = Integer.parseInt(s[1]);
-
                 return numberCard;
             }
         }
@@ -64,7 +56,6 @@ public class InputDataParser {
         }
         return 0;
     }
-
     public ArrayList<ProductFromCheckDTO> getInfoProductsInCheck(Integer[] productIds) throws ProductNotFoundException {
         Map<Integer,Integer> productsFromCheck=getProducts(productIds);
         ArrayList<ProductFromCheckDTO> listProd = new ArrayList<>();
@@ -94,6 +85,5 @@ public class InputDataParser {
             }
         }
         return productsFromCheck;
-
     }
 }

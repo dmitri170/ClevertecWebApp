@@ -16,11 +16,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
-        int number=2;
-        String inputArg = "2-5 1-5 3-5 4-6 7-5 8-3 9-2 10-5 card-1000";
+    public static void main(String[] arg) throws IOException {
+        Scanner scanner=new Scanner(System.in);
+        int number= scanner.nextInt();
         File marketInfoFile = new File("./src/main/resources/marketInfo.json");
         ObjectMapper objectMapper = new ObjectMapper();
         MarketDTO marketDTO = objectMapper.readValue(marketInfoFile, MarketDTO.class);
@@ -29,12 +30,11 @@ public class Main {
                 try {
                     File productsInfoFile = new File("./src/main/resources/productsInfo.json");
                     File cardsInfoFile = new File("./src/main/resources/cardsInfo.json");
-
                     ArrayList<ProductDTO> productDTOS = objectMapper.readValue(productsInfoFile, new TypeReference<ArrayList<ProductDTO>>() {});
                     ArrayList<CardDTO> cardDTOS = objectMapper.readValue(cardsInfoFile, new TypeReference<ArrayList<CardDTO>>() {});
                     InputDataParser inputDataParser = new InputDataParser(productDTOS);
-                    ArrayList<ProductFromCheckDTO> productsFromCheck = inputDataParser.getInfoProductsInCheck(inputArg);
-                    int cardNumber = inputDataParser.getCardNumber(inputArg);
+                    ArrayList<ProductFromCheckDTO> productsFromCheck = inputDataParser.getInfoProductsInCheck(arg);
+                    int cardNumber = inputDataParser.getCardNumber(arg);
                     PrintCheckBuilder builder = new ConsolePrintCheckBuilderImpl();
                     FilePrintCheckBuilderIml filePrintCheckBuilderIml = new FilePrintCheckBuilderIml();
                     CheckDTO checkDTO = new CheckDTO(new Date(), 10, productsFromCheck, builder, filePrintCheckBuilderIml, marketDTO, cardDTOS, productDTOS, cardNumber);
@@ -60,8 +60,8 @@ public class Main {
                 System.out.println(productDTOs.toString());
                 try {
                     InputDataParser inputDataParser = new InputDataParser(productDTOs);
-                    ArrayList<ProductFromCheckDTO> productsFromCheck = inputDataParser.getInfoProductsInCheck(inputArg);
-                    int cardNumber = inputDataParser.getCardNumber(inputArg);
+                    ArrayList<ProductFromCheckDTO> productsFromCheck = inputDataParser.getInfoProductsInCheck(arg);
+                    int cardNumber = inputDataParser.getCardNumber(arg);
                     PrintCheckBuilder builder = new ConsolePrintCheckBuilderImpl();
                     FilePrintCheckBuilderIml filePrintCheckBuilderIml = new FilePrintCheckBuilderIml();
                     CheckDTO checkDTO = new CheckDTO(new Date(), 10, productsFromCheck, builder, filePrintCheckBuilderIml, marketDTO, cardDTOs, productDTOs, cardNumber);
@@ -71,13 +71,10 @@ public class Main {
                 catch (Exception e){
                     e.printStackTrace();
                 }
-
                 session.getTransaction().commit();
                 session.close();
                 HibernateUtil.close();
                 break;
         }
-
     }
-
 }

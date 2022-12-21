@@ -4,9 +4,6 @@ public class MarketDTO {
     private String name;
     private String address;
     private String telephone;
-
-
-
     public String getName() {
         return name;
     }

@@ -28,7 +28,6 @@ public class DiscountCard {
     @Basic
     @Column(name = "discount", nullable = false, precision = 0)
     private Integer discount;
-
     @Override
     public String toString() {
         return "Card{" +

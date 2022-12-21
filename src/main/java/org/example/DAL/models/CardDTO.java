@@ -1,7 +1,6 @@
 package org.example.DAL.models;
 
 import org.example.entity.DiscountCard;
-import org.example.entity.Product;
 
 public class CardDTO {
 
@@ -23,13 +22,6 @@ public class CardDTO {
         this.discount = discount;
     }
 
-    @Override
-    public String toString() {
-        return "Card{" +
-                "number=" + number +
-                "discount=" + discount + "%" +
-                '}';
-    }
     public DiscountCard toEntity() {
 
         DiscountCard discountCard=new DiscountCard();

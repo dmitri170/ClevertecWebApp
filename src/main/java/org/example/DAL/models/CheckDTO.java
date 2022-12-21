@@ -32,38 +32,48 @@ public class CheckDTO {
     private PrintCheckBuilder builder;
     private FilePrintCheckBuilderIml filePrintCheckBuilderIml;
 
-    public Date getPrintDate() {
-        return printDate;
-    }
 
     public void setPrintDate(Date shoppingDate) {
         this.printDate = printDate;
     }
-
-    public int getCashier() {
-        return cashier;
-    }
-
     public void setCashier(int cashier) {
         this.cashier = cashier;
     }
 
-    public DecimalFormat getTaxableTotal() {
-        return taxableTotal;
+    public MarketDTO getMarketDTO() {
+        return marketDTO;
+    }
+
+    public ProductDTO getProductDTO() {
+        return productDTO;
+    }
+
+    public Integer getNumberCard() {
+        return numberCard;
+    }
+
+    public ArrayList<ProductFromCheckDTO> getProductsFromCheck() {
+        return productsFromCheck;
+    }
+
+    public ArrayList<CardDTO> getCardDTOS() {
+        return cardDTOS;
     }
 
     public void setTaxableTotal(DecimalFormat taxableTotal) {
         this.taxableTotal = taxableTotal;
     }
-
-    public ArrayList<ProductFromCheckDTO> getProducts() {
-        return productsFromCheck;
-    }
-
     public void setProducts(ArrayList<ProductFromCheckDTO> productsFromCheck) {
         this.productsFromCheck = productsFromCheck;
     }
-
+public CheckDTO(ArrayList<ProductFromCheckDTO> productsFromCheck,MarketDTO marketDTO,
+                ArrayList<CardDTO> cardDTOS, ArrayList<ProductDTO> productDTOS, int numberCard){
+    this.productsFromCheck = productsFromCheck;
+    this.marketDTO = marketDTO;
+    this.cardDTOS = cardDTOS;
+    this.productDTOS = productDTOS;
+    this.numberCard=numberCard;
+}
     public CheckDTO(Date printDate, int cashier, ArrayList<ProductFromCheckDTO> productsFromCheck, PrintCheckBuilder builder, FilePrintCheckBuilderIml filePrintCheckBuilderIml, MarketDTO marketDTO,
                     ArrayList<CardDTO> cardDTOS, ArrayList<ProductDTO> productDTOS, int numberCard) {
         this.printDate = printDate;
@@ -76,14 +86,10 @@ public class CheckDTO {
         this.productDTOS = productDTOS;
         this.numberCard=numberCard;
     }
-    public CheckDTO(ArrayList<ProductFromCheckDTO> productsFromCheck, ArrayList<CardDTO> cardDTOS, ArrayList<ProductDTO> productDTOS, int numberCard){
+    public CheckDTO(ArrayList<ProductFromCheckDTO> productsFromCheck, ArrayList<ProductDTO> productDTOS, int numberCard){
         this.productsFromCheck = productsFromCheck;
-        this.cardDTOS = cardDTOS;
         this.productDTOS = productDTOS;
         this.numberCard=numberCard;
-    }
-    public CheckDTO(Integer[] productIds,Integer numberCard){
-
     }
     void changeBuilder(PrintCheckBuilder builder){
         this.builder=builder;

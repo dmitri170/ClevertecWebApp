@@ -16,7 +16,6 @@ import java.util.Date;
 
 public class FilePrintCheckBuilderIml implements PrintCheckBuilder{
     private final String nameFile="./src/main/resources/check.txt";
-
     PrintWriter printWriter;
     @Override
     public void printHeader(String title, MarketDTO marketDTO, String cashierLabel, int numberCashier, String dateLabel, Date printDate, String timeLabel, String qty, String description, String price, String total)  {
@@ -37,7 +36,6 @@ public class FilePrintCheckBuilderIml implements PrintCheckBuilder{
             printWriter.println("-----------------------------------------");
             printWriter.println(qty+"\t\t"+description+"\t\t"+price+"\t\t"+total);
             printWriter.flush();
-            printWriter.close();
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -62,15 +60,11 @@ public class FilePrintCheckBuilderIml implements PrintCheckBuilder{
                     }
                 }
                 printWriter.flush();
-                printWriter.close();
             }
             catch (Exception e) {
                 e.printStackTrace();
             }
-
-
         return totalSum;
-
     }
 
     @Override
@@ -80,7 +74,6 @@ public class FilePrintCheckBuilderIml implements PrintCheckBuilder{
             printWriter = new PrintWriter(file);
             printWriter.println("-----------------------------------------");
             file.flush();
-            file.close();
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -99,7 +92,6 @@ public class FilePrintCheckBuilderIml implements PrintCheckBuilder{
                         printWriter.println(vatLabel + " " + "\t\t\t\t\t\t" + (cardDTOS.get(i).getDiscount())+"%");
                     precent= cardDTOS.get(i).getDiscount();
                 }
-
                 printWriter.println(totalLabel+"\t\t\t\t\t\t\t\t"+dF.format(totalSum*(100-precent)/100));
                 file.flush();
                 file.close();

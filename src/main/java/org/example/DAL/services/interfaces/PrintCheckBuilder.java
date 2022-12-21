@@ -14,5 +14,4 @@ public interface PrintCheckBuilder {
     void printLine();
     void printTotals(double totalSum, ArrayList<CardDTO> cardDTOS, int numberCard, String taxableTotalLabel, String vatLabel,
                      String totalLabel);
-
 }

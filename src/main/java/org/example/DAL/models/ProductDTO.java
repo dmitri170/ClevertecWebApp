@@ -11,13 +11,9 @@ public class ProductDTO {
     private  String name;
     private  Double price;
     private  boolean stock;
-
     public ProductDTO() {
         id=counter.incrementAndGet();
     }
-
-
-
     public Integer getId() {
         return id;
     }
@@ -33,17 +29,6 @@ public class ProductDTO {
     public boolean getStock() {
         return stock;
     }
-
-    @Override
-    public String toString() {
-        return "Product{" +
-                "id=" + id+
-                ", name='" + name + '\'' +
-                ", price=" + price +
-                ", stock=" + stock +
-                '}';
-    }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -65,7 +50,6 @@ public class ProductDTO {
     }
 
     public Product toEntity() {
-
         Product product=new Product();
         product.setId(id);
         product.setName(name);

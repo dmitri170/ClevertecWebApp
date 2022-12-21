@@ -30,7 +30,6 @@ public class Product {
     @Basic
     @Column(name = "stock", nullable = true)
     private Boolean stock;
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -38,12 +37,10 @@ public class Product {
         Product product = (Product) o;
         return Objects.equals(id, product.id) && Objects.equals(name, product.name) && Objects.equals(price, product.price) && Objects.equals(stock, product.stock);
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(id, name, price, stock);
     }
-
     @Override
     public String toString() {
         return "Products{" +
@@ -54,7 +51,6 @@ public class Product {
                 '}';
     }
     public ProductDTO toDTO() {
-
         ProductDTO productDTO=new ProductDTO();
         productDTO.setId(id);
         productDTO.setName(name);
